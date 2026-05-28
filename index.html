@@ -7,11 +7,13 @@
 
 <title>🎬 Mira y Aprende | Cine Reciclable</title>
 
-<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3159/3159066.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+RESET
+========================= */
 
 *{
 margin:0;
@@ -27,7 +29,9 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FONDO */
+/* =========================
+FONDO
+========================= */
 
 body::before{
 content:"";
@@ -40,70 +44,9 @@ radial-gradient(circle at bottom,#0f172a 0%,transparent 45%);
 z-index:-2;
 }
 
-/* PARTÍCULAS */
-
-body::after{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-background-image:
-radial-gradient(#22c55e 1px,transparent 1px);
-background-size:40px 40px;
-opacity:.08;
-animation:move 30s linear infinite;
-z-index:-1;
-}
-
-@keyframes move{
-from{
-transform:translateY(0);
-}
-to{
-transform:translateY(-100px);
-}
-}
-
-/* LOADER */
-
-#loader{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:999999;
-animation:hideLoader 3s forwards;
-}
-
-#loader h1{
-font-size:4rem;
-color:#22c55e;
-text-shadow:
-0 0 20px #22c55e,
-0 0 50px #22c55e;
-}
-
-#loader p{
-margin-top:15px;
-color:#aaa;
-}
-
-@keyframes hideLoader{
-0%{opacity:1;}
-85%{opacity:1;}
-100%{
-opacity:0;
-visibility:hidden;
-}
-}
-
-/* HEADER */
+/* =========================
+HEADER
+========================= */
 
 header{
 position:fixed;
@@ -114,49 +57,47 @@ padding:18px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,.65);
-backdrop-filter:blur(12px);
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(10px);
 z-index:9999;
-border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
 font-size:2rem;
 font-weight:800;
 color:#22c55e;
-text-shadow:0 0 15px #22c55e;
 }
 
 .user-box{
 display:flex;
-gap:12px;
+gap:10px;
 }
 
 input,
 select{
-padding:13px;
+padding:12px;
 border:none;
-outline:none;
-border-radius:15px;
+border-radius:14px;
 background:#111827;
 color:white;
-font-weight:600;
+outline:none;
 }
 
-/* NAV */
+/* =========================
+NAV
+========================= */
 
 nav{
 position:fixed;
 top:90px;
 left:50%;
 transform:translateX(-50%);
-background:rgba(17,24,39,.88);
-padding:14px 22px;
+background:#111827;
+padding:12px 22px;
 border-radius:20px;
 display:flex;
-gap:18px;
+gap:20px;
 z-index:999;
-backdrop-filter:blur(10px);
 }
 
 nav a{
@@ -170,101 +111,82 @@ nav a:hover{
 color:#22c55e;
 }
 
-/* BANNER */
+/* =========================
+ALERTA
+========================= */
 
-.warning-banner{
+.warning{
 margin-top:150px;
-background:linear-gradient(90deg,#dc2626,#ef4444);
 padding:18px;
+background:#dc2626;
 text-align:center;
 font-weight:800;
-box-shadow:0 0 25px rgba(239,68,68,.5);
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero{
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
 background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
 url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600");
 background-size:cover;
 background-position:center;
 }
 
-.hero-content{
-max-width:900px;
-}
-
 .hero h1{
 font-size:5rem;
-font-weight:800;
-line-height:1.1;
-text-shadow:
-0 0 20px #22c55e,
-0 0 40px #22c55e;
+text-shadow:0 0 25px #22c55e;
 }
 
 .hero p{
 margin-top:20px;
-font-size:1.3rem;
-color:#d4d4d4;
-line-height:1.8;
+font-size:1.2rem;
+color:#ddd;
 }
 
-.hero-buttons{
-margin-top:35px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.hero-buttons button{
-padding:18px 30px;
+.hero button{
+margin-top:30px;
+padding:18px 35px;
 border:none;
 border-radius:18px;
+background:#22c55e;
+color:white;
 font-weight:700;
 font-size:1rem;
 cursor:pointer;
 transition:.3s;
 }
 
-.primary-btn{
-background:#22c55e;
-color:white;
+.hero button:hover{
+transform:scale(1.05);
 }
 
-.secondary-btn{
-background:#111827;
-color:white;
-}
-
-.hero-buttons button:hover{
-transform:translateY(-5px);
-}
-
-/* STATS */
+/* =========================
+STATS
+========================= */
 
 .stats{
+padding:70px 20px;
 display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-padding:80px 20px;
-max-width:1300px;
+max-width:1200px;
 margin:auto;
 }
 
 .card{
 background:#111827;
-padding:35px;
-border-radius:28px;
+padding:30px;
+border-radius:25px;
 text-align:center;
 transition:.3s;
 }
@@ -276,65 +198,64 @@ transform:translateY(-8px);
 .card h2{
 font-size:2.8rem;
 color:#22c55e;
-margin-bottom:10px;
 }
 
-/* RELOJ */
+/* =========================
+RELOJ
+========================= */
 
 .timer{
-padding:50px 20px;
+padding:70px 20px;
 text-align:center;
-}
-
-.timer h2{
-font-size:2rem;
-margin-bottom:20px;
 }
 
 #clock{
 font-size:4rem;
 font-weight:800;
 color:#22c55e;
-text-shadow:0 0 20px #22c55e;
 }
 
 #countdown{
-margin-top:20px;
+margin-top:15px;
 font-size:1.5rem;
 }
 
-/* CARTELERA */
-
-.movies{
-padding:90px 20px;
-max-width:1400px;
-margin:auto;
-}
+/* =========================
+SECTIONS
+========================= */
 
 .section-title{
 text-align:center;
 font-size:3rem;
 margin-bottom:50px;
-font-weight:800;
+}
+
+/* =========================
+CARTELERA
+========================= */
+
+.movies{
+padding:80px 20px;
+max-width:1400px;
+margin:auto;
 }
 
 .movie-grid{
 display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
+gap:25px;
 }
 
 .movie{
-background:#0f172a;
-border-radius:30px;
+background:#111827;
+border-radius:25px;
 overflow:hidden;
-transition:.4s;
+transition:.3s;
 }
 
 .movie:hover{
 transform:translateY(-10px);
-box-shadow:0 0 40px rgba(34,197,94,.25);
 }
 
 .movie img{
@@ -347,48 +268,34 @@ object-fit:cover;
 padding:25px;
 }
 
-.tag{
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-background:#14532d;
-font-size:.8rem;
-font-weight:700;
-margin-bottom:15px;
-}
-
 .movie-content h3{
+margin-bottom:10px;
 font-size:1.8rem;
-margin-bottom:12px;
 }
 
 .movie-content p{
 color:#bbb;
-line-height:1.7;
 }
 
 .movie-content button{
 margin-top:20px;
 width:100%;
-padding:16px;
+padding:15px;
 border:none;
-border-radius:18px;
+border-radius:16px;
 background:#22c55e;
 color:white;
 font-weight:700;
 cursor:pointer;
-transition:.3s;
 }
 
-.movie-content button:hover{
-transform:scale(1.03);
-}
-
-/* COMBOS */
+/* =========================
+COMBOS
+========================= */
 
 .combos{
-padding:90px 20px;
-max-width:1300px;
+padding:80px 20px;
+max-width:1400px;
 margin:auto;
 }
 
@@ -401,8 +308,8 @@ gap:25px;
 
 .combo{
 background:#111827;
-padding:30px;
-border-radius:28px;
+padding:25px;
+border-radius:25px;
 text-align:center;
 transition:.3s;
 }
@@ -413,7 +320,7 @@ transform:translateY(-8px);
 
 .combo img{
 width:100px;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .combo h3{
@@ -428,43 +335,44 @@ font-weight:700;
 
 .combo button{
 margin-top:15px;
-padding:12px 18px;
+width:100%;
+padding:13px;
 border:none;
 border-radius:14px;
 background:#22c55e;
 color:white;
 font-weight:700;
 cursor:pointer;
-width:100%;
 }
 
-/* CARRITO */
+/* =========================
+CARRITO
+========================= */
 
 #cartButton{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#22c55e;
-padding:14px 18px;
+padding:15px 20px;
 border-radius:18px;
+cursor:pointer;
 font-weight:700;
 z-index:99999;
-cursor:pointer;
-box-shadow:0 0 20px rgba(34,197,94,.5);
+box-shadow:0 0 20px rgba(0,0,0,.5);
 }
 
 #cartPanel{
 position:fixed;
 top:0;
-right:-340px;
-width:320px;
+right:-380px;
+width:350px;
 height:100%;
 background:#111827;
 padding:20px;
-z-index:999999;
 transition:.4s;
+z-index:999999;
 overflow-y:auto;
-box-shadow:-10px 0 30px rgba(0,0,0,.5);
 }
 
 #cartPanel.active{
@@ -475,7 +383,27 @@ right:0;
 background:#1f2937;
 padding:15px;
 border-radius:15px;
-margin-bottom:12px;
+margin-bottom:15px;
+}
+
+.cart-item button{
+margin-top:10px;
+padding:8px 12px;
+border:none;
+border-radius:10px;
+background:#ef4444;
+color:white;
+cursor:pointer;
+}
+
+.payment-btn{
+margin-top:12px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+font-weight:700;
+cursor:pointer;
 }
 
 .ticket{
@@ -486,26 +414,69 @@ border-radius:20px;
 margin-top:20px;
 }
 
-.payment-btn{
+/* =========================
+CONTACTO
+========================= */
+
+.contact{
+padding:80px 20px;
+background:#0f172a;
+text-align:center;
+}
+
+.contact form{
+max-width:700px;
+margin:auto;
+background:#111827;
+padding:30px;
+border-radius:25px;
+}
+
+.contact input,
+.contact textarea{
 width:100%;
-padding:14px;
+padding:15px;
+margin-bottom:15px;
 border:none;
 border-radius:14px;
-margin-top:10px;
+background:#1f2937;
+color:white;
+}
+
+.contact textarea{
+height:150px;
+resize:none;
+}
+
+.contact button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:#22c55e;
+color:white;
 font-weight:700;
 cursor:pointer;
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
-padding:40px 20px;
+padding:45px 20px;
 text-align:center;
 background:#020617;
-margin-top:80px;
 }
 
-/* MOBILE */
+footer p{
+margin-top:10px;
+color:#bbb;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:850px){
 
@@ -513,25 +484,17 @@ margin-top:80px;
 font-size:2.8rem;
 }
 
-.hero p{
-font-size:1rem;
-}
-
 .user-box{
 flex-direction:column;
 }
 
 nav{
-overflow:auto;
 width:95%;
+overflow:auto;
 }
 
 #clock{
 font-size:2.5rem;
-}
-
-.movie img{
-height:320px;
 }
 
 #cartPanel{
@@ -541,19 +504,10 @@ width:85%;
 }
 
 </style>
+
 </head>
 
 <body>
-
-<div id="loader">
-
-<h1>🎬 MIRA Y APRENDE</h1>
-
-<p>
-♻ Cargando experiencia...
-</p>
-
-</div>
 
 <header>
 
@@ -589,45 +543,29 @@ placeholder="Tu nombre">
 <a href="#inicio">Inicio</a>
 <a href="#cartelera">Cartelera</a>
 <a href="#combos">Combos</a>
-<a href="#footer">Contacto</a>
+<a href="#contacto">Contacto</a>
 
 </nav>
 
-<div class="warning-banner">
-
+<div class="warning">
 🚫 NO SE ACEPTAN COMIDAS QUE NO SEAN DEL CINE 🍿
-
 </div>
 
 <section class="hero" id="inicio">
 
-<div class="hero-content">
+<div>
 
 <h1>
-🎬 FESTIVAL DE CINE RECICLABLE
+🎬 CINE RECICLABLE
 </h1>
 
 <p>
 ♻ Trae botellas reciclables y disfruta películas increíbles.
 </p>
 
-<div class="hero-buttons">
-
-<button
-class="primary-btn"
-onclick="goCartelera()">
-
+<button onclick="goCartelera()">
 🍿 Ver cartelera
-
 </button>
-
-<button class="secondary-btn">
-
-🏆 Evento escolar
-
-</button>
-
-</div>
 
 </div>
 
@@ -642,17 +580,12 @@ onclick="goCartelera()">
 
 <div class="card">
 <h2 id="reservasCount">0</h2>
-<p>🎟 Reservas reales</p>
+<p>🎟 Reservas</p>
 </div>
 
 <div class="card">
 <h2 id="usuariosCount">0</h2>
-<p>👥 Usuarios conectados</p>
-</div>
-
-<div class="card">
-<h2>5 Sec</h2>
-<p>🏆 Curso líder</p>
+<p>👥 Usuarios</p>
 </div>
 
 </section>
@@ -660,7 +593,7 @@ onclick="goCartelera()">
 <section class="timer">
 
 <h2>
-⏰ Hora actual en Perú
+⏰ Hora actual Perú
 </h2>
 
 <div id="clock">
@@ -668,7 +601,7 @@ onclick="goCartelera()">
 </div>
 
 <div id="countdown">
-🎬 Próxima función en:
+🎬 Próxima función:
 00:00:00
 </div>
 
@@ -688,19 +621,11 @@ onclick="goCartelera()">
 
 <div class="movie-content">
 
-<div class="tag">
-Familiar
-</div>
+<h3>🍄 Super Mario</h3>
 
-<h3>
-🍄 Super Mario
-</h3>
+<p>Película familiar divertida.</p>
 
-<p>
-Diversión para toda la familia.
-</p>
-
-<button onclick="reservar('Super Mario')">
+<button onclick="comprarEntrada('Super Mario')">
 🎟 Comprar entrada
 </button>
 
@@ -714,19 +639,11 @@ Diversión para toda la familia.
 
 <div class="movie-content">
 
-<div class="tag">
-Terror
-</div>
+<h3>😱 La Momia</h3>
 
-<h3>
-😱 La Momia
-</h3>
+<p>Película de terror.</p>
 
-<p>
-Solo secundaria.
-</p>
-
-<button onclick="reservar('La Momia')">
+<button onclick="comprarEntrada('La Momia')">
 🎟 Comprar entrada
 </button>
 
@@ -740,19 +657,11 @@ Solo secundaria.
 
 <div class="movie-content">
 
-<div class="tag">
-Drama
-</div>
+<h3>🎤 Michael</h3>
 
-<h3>
-🎤 Michael
-</h3>
+<p>Historia inspiradora.</p>
 
-<p>
-Historia inspiradora.
-</p>
-
-<button onclick="reservar('Michael')">
+<button onclick="comprarEntrada('Michael')">
 🎟 Comprar entrada
 </button>
 
@@ -767,65 +676,63 @@ Historia inspiradora.
 <section class="combos" id="combos">
 
 <h2 class="section-title">
-🥤 Combos
+🥤 Combos Oficiales
 </h2>
 
 <div class="combo-grid">
 
 <div class="combo">
-
 <img src="https://cdn-icons-png.flaticon.com/512/2515/2515183.png">
-
-<h3>Cancha Salada</h3>
-
+<h3>🍿 Cancha Salada</h3>
 <p>S/5</p>
-
 <button onclick="addCombo('Cancha Salada',5)">
 Agregar 🛒
 </button>
-
 </div>
 
 <div class="combo">
-
 <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png">
-
-<h3>Cancha Dulce</h3>
-
+<h3>🍭 Cancha Dulce</h3>
 <p>S/6</p>
-
 <button onclick="addCombo('Cancha Dulce',6)">
 Agregar 🛒
 </button>
-
 </div>
 
 <div class="combo">
-
 <img src="https://cdn-icons-png.flaticon.com/512/2405/2405479.png">
-
-<h3>Gaseosa</h3>
-
-<p>S/6</p>
-
-<button onclick="addCombo('Gaseosa',6)">
+<h3>🥤 Gaseosa</h3>
+<p>S/5</p>
+<button onclick="addCombo('Gaseosa',5)">
 Agregar 🛒
 </button>
-
 </div>
 
 <div class="combo">
-
 <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-
-<h3>Combo Mixto</h3>
-
-<p>S/9</p>
-
-<button onclick="addCombo('Combo Mixto',9)">
+<h3>🍿 Combo Mixto</h3>
+<p>S/10</p>
+<button onclick="addCombo('Combo Mixto',10)">
 Agregar 🛒
 </button>
+</div>
 
+<div class="combo">
+<img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+<h3>🌭 Hot Dog</h3>
+<p>S/7</p>
+<button onclick="addCombo('Hot Dog',7)">
+Agregar 🛒
+</button>
+</div>
+
+<div class="combo">
+<img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png">
+<h3>🍫 Chocolate</h3>
+<p>S/4</p>
+<button onclick="addCombo('Chocolate',4)">
+Agregar 🛒
+</button>
 </div>
 
 </div>
@@ -833,9 +740,7 @@ Agregar 🛒
 </section>
 
 <div id="cartButton" onclick="openCart()">
-
 🛒 <span id="cartCount">0</span>
-
 </div>
 
 <div id="cartPanel">
@@ -853,9 +758,9 @@ Total: S/0
 <button
 class="payment-btn"
 style="background:#22c55e;color:white;"
-onclick="checkout()">
+onclick="showPayments()">
 
-💳 Finalizar pedido
+💳 Comprar
 
 </button>
 
@@ -870,50 +775,54 @@ Cerrar
 
 </div>
 
-<footer id="footer">
+<section class="contact" id="contacto">
+
+<h1 class="section-title">
+📞 Contacto
+</h1>
+
+<form>
+
+<input
+type="text"
+placeholder="Tu nombre">
+
+<input
+type="email"
+placeholder="Tu correo">
+
+<textarea
+placeholder="Escribe tu mensaje..."></textarea>
+
+<button type="submit">
+📩 Enviar mensaje
+</button>
+
+</form>
+
+</section>
+
+<footer>
 
 <h2>
 🎬 Mira y Aprende
 </h2>
 
 <p>
-♻ Cine reciclable escolar 2026
+📱 Yape: 955 057 190
 </p>
 
 <p>
-📱 Yape: 955 057 190
+♻ Cine reciclable escolar
 </p>
 
 </footer>
 
-<script type="module">
+<script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getDatabase,
-ref,
-push,
-onValue
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-const firebaseConfig = {
-
-apiKey: "TU_APIKEY",
-authDomain: "mira-y-aprende-321c0.firebaseapp.com",
-databaseURL: "https://mira-y-aprende-321c0-default-rtdb.firebaseio.com",
-projectId: "mira-y-aprende-321c0",
-storageBucket: "mira-y-aprende-321c0.firebasestorage.app",
-messagingSenderId: "1085961832739",
-appId: "1:1085961832739:web:da32eacb00fbe8c4a5a496"
-
-};
-
-const app = initializeApp(firebaseConfig);
-
-const db = getDatabase(app);
-
-/* RELOJ */
+/* =========================
+HORA
+========================= */
 
 function updateClock(){
 
@@ -926,25 +835,8 @@ timeZone:"America/Lima"
 )
 );
 
-const hours =
-String(peruNow.getHours())
-.padStart(2,"0");
-
-const minutes =
-String(peruNow.getMinutes())
-.padStart(2,"0");
-
-const seconds =
-String(peruNow.getSeconds())
-.padStart(2,"0");
-
-document
-.getElementById("clock")
-.innerHTML =
-
-hours + ":" +
-minutes + ":" +
-seconds;
+document.getElementById("clock").innerHTML =
+peruNow.toLocaleTimeString();
 
 }
 
@@ -952,57 +844,39 @@ setInterval(updateClock,1000);
 
 updateClock();
 
-/* COUNTDOWN */
+/* =========================
+COUNTDOWN
+========================= */
 
 function updateCountdown(){
 
-const now = new Date(
-new Date().toLocaleString(
-"en-US",
-{
-timeZone:"America/Lima"
-}
-)
-);
+const now = new Date();
 
-const target = new Date(now);
+const target = new Date();
 
 target.setHours(18,0,0);
 
 if(now > target){
-
 target.setDate(target.getDate()+1);
-
 }
 
-const diff =
-target.getTime() -
-now.getTime();
+const diff = target-now;
 
-const hours =
-String(
-Math.floor(diff / 1000 / 60 / 60)
-).padStart(2,"0");
+const h =
+String(Math.floor(diff/1000/60/60))
+.padStart(2,"0");
 
-const minutes =
-String(
-Math.floor(diff / 1000 / 60) % 60
-).padStart(2,"0");
+const m =
+String(Math.floor(diff/1000/60)%60)
+.padStart(2,"0");
 
-const seconds =
-String(
-Math.floor(diff / 1000) % 60
-).padStart(2,"0");
+const s =
+String(Math.floor(diff/1000)%60)
+.padStart(2,"0");
 
-document
-.getElementById("countdown")
-.innerHTML =
-
-"🎬 Próxima función en: " +
-
-hours + ":" +
-minutes + ":" +
-seconds;
+document.getElementById("countdown").innerHTML =
+"🎬 Próxima función: " +
+h + ":" + m + ":" + s;
 
 }
 
@@ -1010,9 +884,11 @@ setInterval(updateCountdown,1000);
 
 updateCountdown();
 
-/* CARTELERA */
+/* =========================
+SCROLL
+========================= */
 
-window.goCartelera = function(){
+function goCartelera(){
 
 document
 .getElementById("cartelera")
@@ -1022,15 +898,14 @@ behavior:"smooth"
 
 }
 
-/* RESERVAS */
+/* =========================
+RESERVAS
+========================= */
 
-window.reservar = async function(movie){
+function comprarEntrada(movie){
 
 const nombre =
 document.getElementById("username").value;
-
-const grado =
-document.getElementById("grado").value;
 
 if(nombre===""){
 
@@ -1040,53 +915,35 @@ return;
 
 }
 
-await push(
-ref(db,"reservas"),
-{
-nombre,
-grado,
-pelicula:movie,
-hora:new Date().toLocaleString()
-}
+alert("🎟 Entrada reservada para " + movie);
+
+let reservas =
+Number(
+document.getElementById("reservasCount").innerHTML
 );
 
-alert("🎟 Reserva realizada para " + movie);
-
-}
-
-/* CONTADOR */
-
-onValue(ref(db,"reservas"),snapshot=>{
-
-const data = snapshot.val();
-
-if(!data){
-
-document.getElementById("reservasCount").innerHTML = 0;
-
-return;
-
-}
-
 document.getElementById("reservasCount").innerHTML =
-Object.keys(data).length;
+reservas + 1;
 
-});
+}
 
-/* USUARIOS RANDOM */
+/* =========================
+USUARIOS
+========================= */
 
-document.getElementById("usuariosCount")
-.innerHTML =
-Math.floor(Math.random()*50)+80;
+document.getElementById("usuariosCount").innerHTML =
+Math.floor(Math.random()*50)+70;
 
-/* CARRITO */
+/* =========================
+CARRITO
+========================= */
 
 let cart = [];
 
-window.addCombo = function(name,price){
+function addCombo(name,price){
 
 const ok =
-confirm("¿Agregar al carrito?");
+confirm("¿Deseas agregar este combo al carrito?");
 
 if(!ok) return;
 
@@ -1120,10 +977,9 @@ cartItems.innerHTML += `
 
 <p>S/${item.price}</p>
 
-<button
-onclick="removeItem(${index})">
+<button onclick="removeItem(${index})">
 
-❌
+Eliminar
 
 </button>
 
@@ -1133,15 +989,15 @@ onclick="removeItem(${index})">
 
 });
 
-document.getElementById("cartCount")
-.innerHTML = cart.length;
+document.getElementById("cartCount").innerHTML =
+cart.length;
 
-document.getElementById("cartTotal")
-.innerHTML = "Total: S/" + total;
+document.getElementById("cartTotal").innerHTML =
+"Total: S/" + total;
 
 }
 
-window.removeItem = function(index){
+function removeItem(index){
 
 cart.splice(index,1);
 
@@ -1149,9 +1005,7 @@ updateCart();
 
 }
 
-/* ABRIR */
-
-window.openCart = function(){
+function openCart(){
 
 document
 .getElementById("cartPanel")
@@ -1159,9 +1013,7 @@ document
 
 }
 
-/* CERRAR */
-
-window.closeCart = function(){
+function closeCart(){
 
 document
 .getElementById("cartPanel")
@@ -1169,9 +1021,11 @@ document
 
 }
 
-/* CHECKOUT */
+/* =========================
+PAGOS
+========================= */
 
-window.checkout = async function(){
+function showPayments(){
 
 if(cart.length===0){
 
@@ -1195,16 +1049,7 @@ lista += `
 
 });
 
-await push(
-ref(db,"pedidos"),
-{
-productos:cart,
-total
-}
-);
-
-document.getElementById("cartItems")
-.innerHTML = `
+document.getElementById("cartItems").innerHTML += `
 
 <div class="ticket">
 
