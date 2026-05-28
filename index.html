@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🎬 Mira y Aprende | Cine Reciclable</title>
+
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3159/3159066.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* FONDO */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at top,#14532d 0%,transparent 40%),
+radial-gradient(circle at bottom,#0f172a 0%,transparent 45%);
+z-index:-2;
+}
+
+/* PARTÍCULAS */
+
+body::after{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(#22c55e 1px,transparent 1px);
+background-size:40px 40px;
+opacity:.08;
+animation:move 30s linear infinite;
+z-index:-1;
+}
+
+@keyframes move{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-100px);
+}
+}
+
+/* LOADER */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999999;
+animation:hideLoader 3s forwards;
+}
+
+#loader h1{
+font-size:4rem;
+color:#22c55e;
+text-shadow:
+0 0 20px #22c55e,
+0 0 50px #22c55e;
+}
+
+#loader p{
+margin-top:15px;
+color:#aaa;
+}
+
+@keyframes hideLoader{
+0%{opacity:1;}
+85%{opacity:1;}
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(12px);
+z-index:9999;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:#22c55e;
+text-shadow:0 0 15px #22c55e;
+}
+
+.user-box{
+display:flex;
+gap:12px;
+}
+
+input,
+select{
+padding:13px;
+border:none;
+outline:none;
+border-radius:15px;
+background:#111827;
+color:white;
+font-weight:600;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+top:90px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(17,24,39,.88);
+padding:14px 22px;
+border-radius:20px;
+display:flex;
+gap:18px;
+z-index:999;
+backdrop-filter:blur(10px);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+}
+
+nav a:hover{
+color:#22c55e;
+}
+
+/* BANNER */
+
+.warning-banner{
+margin-top:150px;
+background:linear-gradient(90deg,#dc2626,#ef4444);
+padding:18px;
+text-align:center;
+font-weight:800;
+box-shadow:0 0 25px rgba(239,68,68,.5);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600");
+background-size:cover;
+background-position:center;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero h1{
+font-size:5rem;
+font-weight:800;
+line-height:1.1;
+text-shadow:
+0 0 20px #22c55e,
+0 0 40px #22c55e;
+}
+
+.hero p{
+margin-top:20px;
+font-size:1.3rem;
+color:#d4d4d4;
+line-height:1.8;
+}
+
+.hero-buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-buttons button{
+padding:18px 30px;
+border:none;
+border-radius:18px;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
+}
+
+.primary-btn{
+background:#22c55e;
+color:white;
+}
+
+.secondary-btn{
+background:#111827;
+color:white;
+}
+
+.hero-buttons button:hover{
+transform:translateY(-5px);
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:80px 20px;
+max-width:1300px;
+margin:auto;
+}
+
+.card{
+background:#111827;
+padding:35px;
+border-radius:28px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+font-size:2.8rem;
+color:#22c55e;
+margin-bottom:10px;
+}
+
+/* RELOJ */
+
+.timer{
+padding:50px 20px;
+text-align:center;
+}
+
+.timer h2{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+#clock{
+font-size:4rem;
+font-weight:800;
+color:#22c55e;
+text-shadow:0 0 20px #22c55e;
+}
+
+#countdown{
+margin-top:20px;
+font-size:1.5rem;
+}
+
+/* CARTELERA */
+
+.movies{
+padding:90px 20px;
+max-width:1400px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+margin-bottom:50px;
+font-weight:800;
+}
+
+.movie-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.movie{
+background:#0f172a;
+border-radius:30px;
+overflow:hidden;
+transition:.4s;
+}
+
+.movie:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(34,197,94,.25);
+}
+
+.movie img{
+width:100%;
+height:430px;
+object-fit:cover;
+}
+
+.movie-content{
+padding:25px;
+}
+
+.tag{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:#14532d;
+font-size:.8rem;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.movie-content h3{
+font-size:1.8rem;
+margin-bottom:12px;
+}
+
+.movie-content p{
+color:#bbb;
+line-height:1.7;
+}
+
+.movie-content button{
+margin-top:20px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:#22c55e;
+color:white;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.movie-content button:hover{
+transform:scale(1.03);
+}
+
+/* COMBOS */
+
+.combos{
+padding:90px 20px;
+max-width:1300px;
+margin:auto;
+}
+
+.combo-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.combo{
+background:#111827;
+padding:30px;
+border-radius:28px;
+text-align:center;
+transition:.3s;
+}
+
+.combo:hover{
+transform:translateY(-8px);
+}
+
+.combo img{
+width:100px;
+margin-bottom:20px;
+}
+
+.combo h3{
+margin-bottom:10px;
+}
+
+.combo p{
+font-size:1.3rem;
+color:#22c55e;
+font-weight:700;
+}
+
+.combo button{
+margin-top:15px;
+padding:12px 18px;
+border:none;
+border-radius:14px;
+background:#22c55e;
+color:white;
+font-weight:700;
+cursor:pointer;
+width:100%;
+}
+
+/* CARRITO */
+
+#cartButton{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+padding:14px 18px;
+border-radius:18px;
+font-weight:700;
+z-index:99999;
+cursor:pointer;
+box-shadow:0 0 20px rgba(34,197,94,.5);
+}
+
+#cartPanel{
+position:fixed;
+top:0;
+right:-340px;
+width:320px;
+height:100%;
+background:#111827;
+padding:20px;
+z-index:999999;
+transition:.4s;
+overflow-y:auto;
+box-shadow:-10px 0 30px rgba(0,0,0,.5);
+}
+
+#cartPanel.active{
+right:0;
+}
+
+.cart-item{
+background:#1f2937;
+padding:15px;
+border-radius:15px;
+margin-bottom:12px;
+}
+
+.ticket{
+background:white;
+color:black;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+}
+
+.payment-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+margin-top:10px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 20px;
+text-align:center;
+background:#020617;
+margin-top:80px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+.hero h1{
+font-size:2.8rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.user-box{
+flex-direction:column;
+}
+
+nav{
+overflow:auto;
+width:95%;
+}
+
+#clock{
+font-size:2.5rem;
+}
+
+.movie img{
+height:320px;
+}
+
+#cartPanel{
+width:85%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loader">
+
+<h1>🎬 MIRA Y APRENDE</h1>
+
+<p>
+♻ Cargando experiencia...
+</p>
+
+</div>
+
+<header>
+
+<div class="logo">
+🎬 Mira y Aprende
+</div>
+
+<div class="user-box">
+
+<input
+type="text"
+id="username"
+placeholder="Tu nombre">
+
+<select id="grado">
+
+<option>Tu grado</option>
+<option>Primaria</option>
+<option>1 Sec</option>
+<option>2 Sec</option>
+<option>3 Sec</option>
+<option>4 Sec</option>
+<option>5 Sec</option>
+
+</select>
+
+</div>
+
+</header>
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+<a href="#cartelera">Cartelera</a>
+<a href="#combos">Combos</a>
+<a href="#footer">Contacto</a>
+
+</nav>
+
+<div class="warning-banner">
+
+🚫 NO SE ACEPTAN COMIDAS QUE NO SEAN DEL CINE 🍿
+
+</div>
+
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<h1>
+🎬 FESTIVAL DE CINE RECICLABLE
+</h1>
+
+<p>
+♻ Trae botellas reciclables y disfruta películas increíbles.
+</p>
+
+<div class="hero-buttons">
+
+<button
+class="primary-btn"
+onclick="goCartelera()">
+
+🍿 Ver cartelera
+
+</button>
+
+<button class="secondary-btn">
+
+🏆 Evento escolar
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h2>250</h2>
+<p>♻ Botellas recicladas</p>
+</div>
+
+<div class="card">
+<h2 id="reservasCount">0</h2>
+<p>🎟 Reservas reales</p>
+</div>
+
+<div class="card">
+<h2 id="usuariosCount">0</h2>
+<p>👥 Usuarios conectados</p>
+</div>
+
+<div class="card">
+<h2>5 Sec</h2>
+<p>🏆 Curso líder</p>
+</div>
+
+</section>
+
+<section class="timer">
+
+<h2>
+⏰ Hora actual en Perú
+</h2>
+
+<div id="clock">
+00:00:00
+</div>
+
+<div id="countdown">
+🎬 Próxima función en:
+00:00:00
+</div>
+
+</section>
+
+<section class="movies" id="cartelera">
+
+<h2 class="section-title">
+🍿 Cartelera
+</h2>
+
+<div class="movie-grid">
+
+<div class="movie">
+
+<img src="https://m.media-amazon.com/images/S/pv-target-images/763db971dde3179cd23c0b16a7b9ee93314c35be4dd2e1a8372afa52178779f8.jpg">
+
+<div class="movie-content">
+
+<div class="tag">
+Familiar
+</div>
+
+<h3>
+🍄 Super Mario
+</h3>
+
+<p>
+Diversión para toda la familia.
+</p>
+
+<button onclick="reservar('Super Mario')">
+🎟 Comprar entrada
+</button>
+
+</div>
+
+</div>
+
+<div class="movie">
+
+<img src="https://sacnkprodpecms.blob.core.windows.net/content/posters/HO00008859.jpg">
+
+<div class="movie-content">
+
+<div class="tag">
+Terror
+</div>
+
+<h3>
+😱 La Momia
+</h3>
+
+<p>
+Solo secundaria.
+</p>
+
+<button onclick="reservar('La Momia')">
+🎟 Comprar entrada
+</button>
+
+</div>
+
+</div>
+
+<div class="movie">
+
+<img src="https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc@._V1_.jpg">
+
+<div class="movie-content">
+
+<div class="tag">
+Drama
+</div>
+
+<h3>
+🎤 Michael
+</h3>
+
+<p>
+Historia inspiradora.
+</p>
+
+<button onclick="reservar('Michael')">
+🎟 Comprar entrada
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="combos" id="combos">
+
+<h2 class="section-title">
+🥤 Combos
+</h2>
+
+<div class="combo-grid">
+
+<div class="combo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2515/2515183.png">
+
+<h3>Cancha Salada</h3>
+
+<p>S/5</p>
+
+<button onclick="addCombo('Cancha Salada',5)">
+Agregar 🛒
+</button>
+
+</div>
+
+<div class="combo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png">
+
+<h3>Cancha Dulce</h3>
+
+<p>S/6</p>
+
+<button onclick="addCombo('Cancha Dulce',6)">
+Agregar 🛒
+</button>
+
+</div>
+
+<div class="combo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2405/2405479.png">
+
+<h3>Gaseosa</h3>
+
+<p>S/6</p>
+
+<button onclick="addCombo('Gaseosa',6)">
+Agregar 🛒
+</button>
+
+</div>
+
+<div class="combo">
+
+<img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+
+<h3>Combo Mixto</h3>
+
+<p>S/9</p>
+
+<button onclick="addCombo('Combo Mixto',9)">
+Agregar 🛒
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<div id="cartButton" onclick="openCart()">
+
+🛒 <span id="cartCount">0</span>
+
+</div>
+
+<div id="cartPanel">
+
+<h2>
+🛒 Carrito
+</h2>
+
+<div id="cartItems"></div>
+
+<h3 id="cartTotal">
+Total: S/0
+</h3>
+
+<button
+class="payment-btn"
+style="background:#22c55e;color:white;"
+onclick="checkout()">
+
+💳 Finalizar pedido
+
+</button>
+
+<button
+class="payment-btn"
+style="background:#ef4444;color:white;"
+onclick="closeCart()">
+
+Cerrar
+
+</button>
+
+</div>
+
+<footer id="footer">
+
+<h2>
+🎬 Mira y Aprende
+</h2>
+
+<p>
+♻ Cine reciclable escolar 2026
+</p>
+
+<p>
+📱 Yape: 955 057 190
+</p>
+
+</footer>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getDatabase,
+ref,
+push,
+onValue
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+
+apiKey: "TU_APIKEY",
+authDomain: "mira-y-aprende-321c0.firebaseapp.com",
+databaseURL: "https://mira-y-aprende-321c0-default-rtdb.firebaseio.com",
+projectId: "mira-y-aprende-321c0",
+storageBucket: "mira-y-aprende-321c0.firebasestorage.app",
+messagingSenderId: "1085961832739",
+appId: "1:1085961832739:web:da32eacb00fbe8c4a5a496"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+/* RELOJ */
+
+function updateClock(){
+
+const peruNow = new Date(
+new Date().toLocaleString(
+"en-US",
+{
+timeZone:"America/Lima"
+}
+)
+);
+
+const hours =
+String(peruNow.getHours())
+.padStart(2,"0");
+
+const minutes =
+String(peruNow.getMinutes())
+.padStart(2,"0");
+
+const seconds =
+String(peruNow.getSeconds())
+.padStart(2,"0");
+
+document
+.getElementById("clock")
+.innerHTML =
+
+hours + ":" +
+minutes + ":" +
+seconds;
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+/* COUNTDOWN */
+
+function updateCountdown(){
+
+const now = new Date(
+new Date().toLocaleString(
+"en-US",
+{
+timeZone:"America/Lima"
+}
+)
+);
+
+const target = new Date(now);
+
+target.setHours(18,0,0);
+
+if(now > target){
+
+target.setDate(target.getDate()+1);
+
+}
+
+const diff =
+target.getTime() -
+now.getTime();
+
+const hours =
+String(
+Math.floor(diff / 1000 / 60 / 60)
+).padStart(2,"0");
+
+const minutes =
+String(
+Math.floor(diff / 1000 / 60) % 60
+).padStart(2,"0");
+
+const seconds =
+String(
+Math.floor(diff / 1000) % 60
+).padStart(2,"0");
+
+document
+.getElementById("countdown")
+.innerHTML =
+
+"🎬 Próxima función en: " +
+
+hours + ":" +
+minutes + ":" +
+seconds;
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+/* CARTELERA */
+
+window.goCartelera = function(){
+
+document
+.getElementById("cartelera")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+/* RESERVAS */
+
+window.reservar = async function(movie){
+
+const nombre =
+document.getElementById("username").value;
+
+const grado =
+document.getElementById("grado").value;
+
+if(nombre===""){
+
+alert("⚠ Ingresa tu nombre");
+
+return;
+
+}
+
+await push(
+ref(db,"reservas"),
+{
+nombre,
+grado,
+pelicula:movie,
+hora:new Date().toLocaleString()
+}
+);
+
+alert("🎟 Reserva realizada para " + movie);
+
+}
+
+/* CONTADOR */
+
+onValue(ref(db,"reservas"),snapshot=>{
+
+const data = snapshot.val();
+
+if(!data){
+
+document.getElementById("reservasCount").innerHTML = 0;
+
+return;
+
+}
+
+document.getElementById("reservasCount").innerHTML =
+Object.keys(data).length;
+
+});
+
+/* USUARIOS RANDOM */
+
+document.getElementById("usuariosCount")
+.innerHTML =
+Math.floor(Math.random()*50)+80;
+
+/* CARRITO */
+
+let cart = [];
+
+window.addCombo = function(name,price){
+
+const ok =
+confirm("¿Agregar al carrito?");
+
+if(!ok) return;
+
+cart.push({
+name,
+price
+});
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems =
+document.getElementById("cartItems");
+
+cartItems.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
+<h4>${item.name}</h4>
+
+<p>S/${item.price}</p>
+
+<button
+onclick="removeItem(${index})">
+
+❌
+
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("cartCount")
+.innerHTML = cart.length;
+
+document.getElementById("cartTotal")
+.innerHTML = "Total: S/" + total;
+
+}
+
+window.removeItem = function(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+/* ABRIR */
+
+window.openCart = function(){
+
+document
+.getElementById("cartPanel")
+.classList.add("active");
+
+}
+
+/* CERRAR */
+
+window.closeCart = function(){
+
+document
+.getElementById("cartPanel")
+.classList.remove("active");
+
+}
+
+/* CHECKOUT */
+
+window.checkout = async function(){
+
+if(cart.length===0){
+
+alert("🛒 Tu carrito está vacío");
+
+return;
+
+}
+
+let total = 0;
+
+let lista = "";
+
+cart.forEach(item=>{
+
+total += item.price;
+
+lista += `
+<li>${item.name} - S/${item.price}</li>
+`;
+
+});
+
+await push(
+ref(db,"pedidos"),
+{
+productos:cart,
+total
+}
+);
+
+document.getElementById("cartItems")
+.innerHTML = `
+
+<div class="ticket">
+
+<h1>
+🎟 Ticket Oficial
+</h1>
+
+<ul>
+
+${lista}
+
+</ul>
+
+<h2>
+💰 Total: S/${total}
+</h2>
+
+<hr>
+
+<h3>
+🟣 Yape:
+955 057 190
+</h3>
+
+<p>
+
+📸 Tómale captura y muéstralo en boletería.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
